@@ -1,0 +1,16 @@
+pipeline {
+    agent { label 'Master'}
+    stages {
+         stage("SCM checkout-DEv1"){
+             steps {
+                 git 'https://github.com/AmitAWS/Java-Proj01'
+             }
+           }
+    stage ("Java execute"){
+        steps {
+        sh label: '', script: '''javac *.java
+java Simple'''
+             }
+          }
+       }
+    }
